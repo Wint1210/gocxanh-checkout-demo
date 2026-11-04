@@ -1,0 +1,111 @@
+body {
+    background-color: #f5f7f2;
+    font-family: Arial, sans-serif;
+    color: #243024;
+}
+
+.card {
+    background-color: white;
+    padding: 20px; /* padding: 20px; để tạo khoảng cách bên trong phần tử */
+    border-radius: 12px; /* border-radius: 12px; để bo tròn các góc của phần tử */
+    margin-bottom: 20px; /* margin-bottom: 20px; để tạo khoảng cách bên dưới phần tử */
+}
+.checkout-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.form-group {
+    display: flex;
+    flex-direction: column; /* display: flex; để tạo một khối linh hoạt, flex-direction: column; để sắp xếp các phần tử con theo chiều dọc */
+    gap: 8px; /* gap: 8px; để tạo khoảng cách giữa các phần tử con */
+    margin-bottom: 16px; /* Tạo khoảng cách bên dưới nhóm nhập liệu */
+}
+.customer-row { /* customer-row { để định dạng các hàng thông tin khách hàng */ 
+    display: grid; /* display: grid; để tạo một lưới linh hoạt */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-template-columns: repeat(2, minmax(0, 1fr)); để tạo 2 cột có kích thước bằng nhau */
+    gap: 16px;
+}
+@media (max-width: 600px) { /* @media (max-width: 600px) để áp dụng các quy tắc CSS khi màn hình có chiều rộng tối đa là 600px */
+    .customer-row {
+        grid-template-columns: 1fr;
+    }
+}
+.form-group input, /* form-group input, để định dạng các ô nhập liệu trong form-group */
+.form-group textarea { /* form-group textarea { để định dạng các ô nhập liệu dạng textarea trong form-group */
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;/* border: 1px solid #cccccc; để tạo viền cho phần tử */
+    border-radius: 8px;/* border-radius: 8px; để bo tròn các góc của phần tử */
+    box-sizing: border-box;/* box-sizing: border-box; để tính toán kích thước phần tử bao gồm cả padding và border */
+    font-size: 16px;
+}
+.checkout-grid {
+    display: grid;/* display: grid; để tạo một lưới linh hoạt */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    grid-template-areas: /* grid-template-areas: để định nghĩa các khu vực trong lưới */
+    "delivery order"
+    "payment bill";
+}
+@media (max-width: 768px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "delivery"
+            "order"
+            "payment"
+            "bill";
+    }
+}
+.delivery-info {
+    grid-area: delivery;
+}
+
+.order-summary {
+    grid-area: order;
+}
+
+.payment-method {
+    grid-area: payment;
+}
+
+.bill-summary {
+    grid-area: bill;
+}
+#place-order {
+    background-color: #40a653;
+    color: white;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+.total-row {
+    border-top: 1px solid #dddddd;
+    padding-top: 16px;
+    font-size: 20px;
+    color: #398b43;
+}
+.error-message {
+    color: #dc2626;
+    font-size: 13px;
+}
+#place-order:disabled {
+    background-color: #a8b5a8;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.order-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+justify-content: space-between;
+}

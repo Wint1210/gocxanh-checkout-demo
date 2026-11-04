@@ -1,0 +1,72 @@
+<!DOCTYPE html> <!-- khai bao du lieu html5 -->
+<html lang="vi"> <!-- dung ngon ngu tieng viet -->
+<head> <!-- thong tin ve tai nguyen va cau hinh cua trang web -->
+    <meta charset="UTF-8"> <!-- viết chữ có dấu -->
+    <meta name="viewport"content="width=device-width, initial-scale=1.0"> <!-- điều chỉnh cái góc nhìn của trang web theo thiết bị đang dùng -->
+    <title>Xác nhận đơn hàng | Góc Xanh</title> <!-- tiêu đề chính -->
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body> <!-- xây dựng giao diện người dùng -->
+    <main class="checkout-container"> 
+    <h1>Xác nhận đơn hàng</h1> <!-- tiêu đề phụ -->
+    <div class="checkout-grid"> <!-- checkout-grid { để tạo một lưới cho các phần tử trong trang thanh toán -->
+    <section class="card delivery-info">  <!-- nội dung gom lại để thành 1 chủ đề -->
+    <h2>Thông tin giao hàng</h2>
+    <div class="customer-row">
+    <div class="form-group">
+    <label for="recipient">Tên người nhận:</label>
+    <input type="text" id="recipient" placeholder="Nhập họ và tên">
+    <small id="recipient-error" class="error-message"></small>
+    </div>
+    <div class="form-group">
+    <label for="phonenumber">Số điện thoại:</label>
+    <input type="tel" id="phonenumber" placeholder="Nhập số điện thoại">
+    <small id="phonenumber-error" class="error-message"></small>
+    </div>
+    </div> 
+    <div class="form-group">
+    <label for="address">Địa chỉ:</label>
+    <input type="text" id="address" placeholder="Nhập địa chỉ">
+    <small id="address-error" class="error-message"></small>
+</div>
+    <div class="form-group">
+    <label for="note">Ghi chú giao hàng:</label>
+    <textarea id="note" rows="3" placeholder="Nhập ghi chú (nếu có)"></textarea>
+    </div>
+</section>
+<section class="card order-summary"> 
+    <h2>Đồ uống đã chọn</h2>
+    <div id="order-items"></div> <!--div dung gom các phần thông tin với nhau để chỉnh theo cụm :v còn id = ... dùng để javascript truy xuất đến phần tử đó -->
+</section>
+<section class="card payment-method">
+    <h2>Phương thức thanh toán </h2>
+    <label> 
+        <input type="radio" name="payment" value="cod" checked> <!-- type="radio" để tạo ô chọn, name="payment" để nhóm các ô chọn lại, value="cod" để xác định giá trị khi được chọn -->
+        Thanh toán khi nhận hàng (COD)
+    </label>
+</section>
+<section class="card bill-summary"> <!-- section dùng để gom các phần tử lại thành 1 chủ đề, class="card bill-summary" dùng để định dạng giao diện -->
+    <h2>Tổng hóa đơn</h2>
+    <p class="price-row">
+    <span>Tạm tính:</span>
+    <span><span id="subtotal">0</span> VNĐ</span>
+</p>
+
+<p class="price-row">
+    <span>Phí vận chuyển:</span>
+    <span><span id="delivery-fee">0</span> VNĐ</span>
+</p>
+
+<p class="price-row total-row">
+    <strong>Tổng cộng:</strong>
+    <strong><span id="total-price">0</span> VNĐ</strong>
+</p>
+</section>
+</div>
+<button type="button" id="place-order">
+    Đặt đơn
+</button>
+</main>
+<script src="checkout.js"></script>
+</body>
+</html>
